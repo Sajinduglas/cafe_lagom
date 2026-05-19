@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
 import { CAFE_NAME } from '@/utils/constants';
+import GooeyNav from '../GooeyNav/GooeyNav';
 import StaggeredMenu from '../StaggeredMenu/StaggeredMenu';
 
 const navLinks = [
@@ -30,20 +31,9 @@ export default function Navbar() {
           ☕ {CAFE_NAME}
         </NavLink>
 
-        <ul className={`${styles.links} ${styles.desktopLinks}`}>
-          {navLinks.map(({ path, label }) => (
-            <li key={path}>
-              <NavLink
-                to={path}
-                className={({ isActive }) =>
-                  isActive ? `${styles.link} ${styles.active}` : styles.link
-                }
-              >
-                {label}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+        <div className={styles.desktopLinks}>
+          <GooeyNav items={navLinks} />
+        </div>
 
         <AnimatePresence>
           {menuOpen && (
