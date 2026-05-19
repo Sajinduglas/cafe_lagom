@@ -1,0 +1,44 @@
+:root {
+  /* Brand Colors */
+  --color-primary: #3B1F0A;       /* deep espresso brown */
+  --color-secondary: #C8873A;     /* warm golden amber */
+  --color-accent: #E8B86D;        /* light golden */
+  --color-bg: #FAF6F0;            /* warm cream */
+  --color-bg-dark: #1A0F05;       /* dark roast */
+  --color-surface: #FFF8EE;       /* card surface */
+  --color-text: #2C1810;          /* body text */
+  --color-text-muted: #7A5C45;    /* muted text */
+  --color-border: #E8D5BC;        /* soft border */
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+
+  /* Spacing */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+  --space-2xl: 128px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 4px rgba(59, 31, 10, 0.08);
+  --shadow-md: 0 4px 16px rgba(59, 31, 10, 0.12);
+  --shadow-lg: 0 12px 40px rgba(59, 31, 10, 0.16);
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 600ms ease;
+
+  /* Layout */
+  --max-width: 1200px;
+  --navbar-height: 72px;
+}
