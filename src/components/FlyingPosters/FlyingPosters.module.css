@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   /* height is set dynamically in JSX */
-  background: #111; /* Dark background to match the screenshot */
+  background: var(--color-bg); /* Use app default background */
   margin-top: calc(-1 * var(--space-xl)); /* Remove padding gap if any */
 }
 
@@ -16,21 +16,6 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-}
-
-.scrollText {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: var(--font-heading);
-  font-size: 28vw;
-  font-weight: 800;
-  color: rgba(255, 255, 255, 0.08);
-  pointer-events: none;
-  z-index: 0;
-  margin: 0;
-  line-height: 1;
 }
 
 .poster {
