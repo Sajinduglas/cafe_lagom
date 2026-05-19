@@ -7,10 +7,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={`container ${styles.grid}`}>
         <div className={styles.brand}>
-          <h3 className={styles.logo}>☕ {CAFE_NAME}</h3>
-          <p className={styles.tagline}>
-            A cozy corner for good food, great company, and unforgettable flavours.
-          </p>
+          <img src="/images/logo.png" alt="Cafe Lagom" className={styles.footerLogo} />
+          <h3 className={styles.logoText}>{CAFE_NAME}</h3>
+          <p className={styles.tagline}>not too much, not too little.</p>
         </div>
 
         <div className={styles.col}>

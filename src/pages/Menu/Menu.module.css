@@ -29,8 +29,8 @@
 }
 
 .filterBtn:hover {
-  border-color: var(--color-secondary);
-  color: var(--color-secondary);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .filterBtn.active {

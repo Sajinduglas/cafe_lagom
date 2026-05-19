@@ -57,7 +57,7 @@ export default function GooeyNav({
         particle.style.setProperty('--end-y', `${p.end[1]}px`);
         particle.style.setProperty('--time', `${p.time}ms`);
         particle.style.setProperty('--scale', `${p.scale}`);
-        particle.style.setProperty('--color', p.color === 1 ? 'var(--color-secondary)' : 'var(--color-primary)');
+        particle.style.setProperty('--color', p.color === 1 ? 'var(--nav-particle-1)' : 'var(--nav-particle-2)');
         particle.style.setProperty('--rotate', `${p.rotate}deg`);
         point.classList.add(styles.point);
         particle.appendChild(point);

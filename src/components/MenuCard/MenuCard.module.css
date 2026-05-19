@@ -32,7 +32,7 @@
   position: absolute;
   top: 12px;
   left: 12px;
-  background: var(--color-secondary);
+  background: var(--color-primary);
   color: #fff;
   font-size: 0.72rem;
   font-weight: 600;
@@ -76,7 +76,7 @@
 .price {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--color-secondary);
+  color: var(--color-primary);
   font-family: var(--font-heading);
 }
 
@@ -91,6 +91,17 @@
 }
 
 .btn:hover {
-  background: var(--color-secondary);
+  background: var(--color-primary-dark);
   transform: scale(1.04);
+}
+
+.priceNote {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--color-primary);
+  background: rgba(13, 74, 53, 0.08);
+  border-radius: var(--radius-sm);
+  padding: 6px 10px;
+  margin-bottom: var(--space-sm);
+  line-height: 1.6;
 }

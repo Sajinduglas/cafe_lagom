@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
 import { CAFE_NAME } from '@/utils/constants';
@@ -17,6 +17,7 @@ const navLinks = [
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
@@ -24,11 +25,18 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const isLightNavbar = location.pathname !== '/' && !scrolled;
+
   return (
-    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
-      <div className={`container ${styles.inner}`}>
+    <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${isLightNavbar ? styles.lightNavbar : ''}`}>
+      <div className={styles.inner}>
         <NavLink to="/" className={styles.logo}>
-          ☕ {CAFE_NAME}
+          <img
+            src={isLightNavbar ? "/images/logo-green.png" : "/images/logo.png"}
+            alt="Cafe Lagom"
+            className={styles.logoImg}
+          />
+          <span className={`${styles.logoText} ${isLightNavbar ? styles.lightLogoText : ''}`}>{CAFE_NAME}</span>
         </NavLink>
 
         <div className={styles.desktopLinks}>

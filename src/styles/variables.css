@@ -1,20 +1,34 @@
 :root {
-  /* Brand Colors */
-  --color-primary: #3B1F0A;       /* deep espresso brown */
-  --color-secondary: #C8873A;     /* warm golden amber */
-  --color-accent: #E8B86D;        /* light golden */
-  --color-bg: #FAF6F0;            /* warm cream */
-  --color-bg-dark: #1A0F05;       /* dark roast */
-  --color-surface: #FFF8EE;       /* card surface */
-  --color-text: #2C1810;          /* body text */
-  --color-text-muted: #7A5C45;    /* muted text */
-  --color-border: #E8D5BC;        /* soft border */
+  /* ─── Brand Colors (extracted from Cafe Lagom menu boards & logo) ─── */
+  --color-primary: #0D4A35;        /* deep forest green — main brand color */
+  --color-primary-dark: #082D20;   /* darker green — hover states, footer */
+  --color-primary-light: #155C42;  /* lighter green — cards on dark bg */
+  --color-secondary: #C8A96E;      /* warm golden tan — price highlights, CTAs */
+  --color-accent: #E8DCC8;         /* warm cream — logo text color, light accents */
 
-  /* Typography */
+  /* ─── Background Colors ─── */
+  --color-bg: #F5F0E8;             /* warm off-white — main page background */
+  --color-bg-green: #0D4A35;       /* deep green — hero sections, dark panels */
+  --color-surface: #FFFFFF;        /* pure white — cards */
+  --color-surface-cream: #FAF6EE;  /* light cream — alternating section bg */
+
+  /* ─── Text Colors ─── */
+  --color-text: #1A1A1A;           /* near black — body text on light bg */
+  --color-text-on-green: #E8DCC8;  /* cream — text on dark green backgrounds */
+  --color-text-muted: #5A6B5E;     /* muted green-grey — descriptions, captions */
+  --color-text-muted-on-green: rgba(232, 220, 200, 0.65); /* muted cream on green */
+
+  /* ─── UI Colors ─── */
+  --color-border: #D8CDB8;         /* warm beige border */
+  --color-border-green: rgba(232, 220, 200, 0.2); /* subtle border on green bg */
+  --color-tag-bg: #C8A96E;         /* tag/badge background */
+  --color-tag-text: #fff;
+
+  /* ─── Typography ─── */
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body: 'Inter', system-ui, sans-serif;
 
-  /* Spacing */
+  /* ─── Spacing (unchanged) ─── */
   --space-xs: 4px;
   --space-sm: 8px;
   --space-md: 16px;
@@ -22,23 +36,23 @@
   --space-xl: 64px;
   --space-2xl: 128px;
 
-  /* Border Radius */
+  /* ─── Border Radius (unchanged) ─── */
   --radius-sm: 6px;
   --radius-md: 12px;
   --radius-lg: 20px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 4px rgba(59, 31, 10, 0.08);
-  --shadow-md: 0 4px 16px rgba(59, 31, 10, 0.12);
-  --shadow-lg: 0 12px 40px rgba(59, 31, 10, 0.16);
+  /* ─── Shadows (adjusted for green theme) ─── */
+  --shadow-sm: 0 1px 4px rgba(13, 74, 53, 0.08);
+  --shadow-md: 0 4px 16px rgba(13, 74, 53, 0.12);
+  --shadow-lg: 0 12px 40px rgba(13, 74, 53, 0.18);
 
-  /* Transitions */
+  /* ─── Transitions (unchanged) ─── */
   --transition-fast: 150ms ease;
   --transition-base: 300ms ease;
   --transition-slow: 600ms ease;
 
-  /* Layout */
+  /* ─── Layout (unchanged) ─── */
   --max-width: 1200px;
   --navbar-height: 72px;
 }

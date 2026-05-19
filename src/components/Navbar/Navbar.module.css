@@ -10,9 +10,38 @@
 }
 
 .navbar.scrolled {
-  background: rgba(250, 246, 240, 0.95);
+  background: rgba(13, 74, 53, 0.96);
   backdrop-filter: blur(12px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.desktopLinks {
+  --nav-link: rgba(232, 220, 200, 0.75);
+  --nav-link-hover: var(--color-accent);
+  --nav-link-active: var(--color-primary-dark);
+  --nav-pill: var(--color-accent);
+  --nav-particle-1: var(--color-accent);
+  --nav-particle-2: rgba(232, 220, 200, 0.4);
+}
+
+.navbar.scrolled .desktopLinks {
+  --nav-link: rgba(232, 220, 200, 0.75);
+  --nav-link-hover: var(--color-accent);
+  --nav-link-active: var(--color-primary-dark);
+  --nav-pill: var(--color-accent);
+  --color-primary: var(--color-accent);
+  --nav-particle-1: var(--color-accent);
+  --nav-particle-2: rgba(232, 220, 200, 0.4);
+}
+
+/* Light navbar styles for subpages when not scrolled */
+.navbar.lightNavbar .desktopLinks {
+  --nav-link: var(--color-primary);
+  --nav-link-hover: var(--color-primary-dark);
+  --nav-link-active: #fff;
+  --nav-pill: var(--color-primary);
+  --nav-particle-1: var(--color-primary);
+  --nav-particle-2: var(--color-primary-light);
 }
 
 .inner {
@@ -20,14 +49,38 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 var(--space-xl);
+}
+
+.logoImg {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  /* The logo is cream on dark green — works perfectly on scrolled green navbar */
+  /* On transparent navbar (hero), add a subtle drop shadow for legibility */
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.2));
+}
+
+.logoText {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-on-green);
+  letter-spacing: -0.01em;
+}
+
+.lightLogoText {
+  color: var(--color-primary) !important;
 }
 
 .logo {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  text-decoration: none;
 }
 
 .links {
@@ -52,7 +105,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: var(--color-secondary);
+  background: var(--color-primary);
   transition: width var(--transition-base);
 }
 
