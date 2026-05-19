@@ -1,0 +1,66 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import styles from './Menu.module.css';
+import SectionTitle from '@components/SectionTitle/SectionTitle';
+import MenuCard from '@components/MenuCard/MenuCard';
+import { menuItems, menuCategories } from '@data/menuData';
+
+export default function Menu() {
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const filtered =
+    activeCategory === 'All'
+      ? menuItems
+      : menuItems.filter((item) => item.category === activeCategory);
+
+  return (
+    <main className={styles.page}>
+      <div className={styles.hero}>
+        <div className="container">
+          <SectionTitle
+            label="What we serve"
+            title="Our Menu"
+            subtitle="Fresh, flavourful, and made with care. Something for every craving."
+          />
+        </div>
+      </div>
+
+      <div className="container section">
+        {/* Category filter */}
+        <div className={styles.filters}>
+          {menuCategories.map((cat) => (
+            <button
+              key={cat}
+              className={`${styles.filterBtn} ${activeCategory === cat ? styles.active : ''}`}
+              onClick={() => setActiveCategory(cat)}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid */}
+        <motion.div className={styles.grid} layout>
+          <AnimatePresence mode="popLayout">
+            {filtered.map((item) => (
+              <motion.div
+                key={item.id}
+                layout
+                initial={{ opacity: 0, scale: 0.92 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.88 }}
+                transition={{ duration: 0.35 }}
+              >
+                <MenuCard item={item} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {filtered.length === 0 && (
+          <p className={styles.empty}>No items in this category yet. Check back soon!</p>
+        )}
+      </div>
+    </main>
+  );
+}
