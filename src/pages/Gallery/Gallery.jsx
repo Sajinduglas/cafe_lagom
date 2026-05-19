@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Gallery.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
+import FlyingPosters from '@components/FlyingPosters/FlyingPosters';
 
 const galleryImages = [
   { id: 1, src: '/images/fries.jpg',         alt: 'Loaded French Fries',  label: 'Loaded Fries' },
@@ -33,28 +34,34 @@ export default function Gallery() {
       </div>
 
       <div className="container section">
-        <div className={styles.grid}>
-          {galleryImages.map((img, i) => (
-            <motion.div
-              key={img.id}
-              className={styles.item}
-              initial={{ opacity: 0, scale: 0.94 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.06 }}
-              onClick={() => setLightbox(img)}
-            >
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                onError={(e) => { e.target.src = placeholder(img.label); }}
-              />
-              <div className={styles.overlay}>
-                <span className={styles.overlayLabel}>{img.label}</span>
-              </div>
-            </motion.div>
-          ))}
+        <div className={styles.desktopGrid}>
+          <div className={styles.grid}>
+            {galleryImages.map((img, i) => (
+              <motion.div
+                key={img.id}
+                className={styles.item}
+                initial={{ opacity: 0, scale: 0.94 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.06 }}
+                onClick={() => setLightbox(img)}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  onError={(e) => { e.target.src = placeholder(img.label); }}
+                />
+                <div className={styles.overlay}>
+                  <span className={styles.overlayLabel}>{img.label}</span>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+        
+        <div className={styles.mobileFlying}>
+          <FlyingPosters items={galleryImages} onImageClick={setLightbox} />
         </div>
       </div>
 

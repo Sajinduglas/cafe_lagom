@@ -92,5 +92,19 @@
 
 .lightboxClose:hover { opacity: 1; }
 
-@media (max-width: 768px) { .grid { columns: 2; } }
-@media (max-width: 480px) { .grid { columns: 1; } }
+.desktopGrid {
+  display: block;
+}
+
+.mobileFlying {
+  display: none;
+}
+
+@media (max-width: 768px) { 
+  .grid { columns: 2; } 
+}
+
+@media (max-width: 480px) { 
+  .desktopGrid { display: none; }
+  .mobileFlying { display: block; margin: 0 calc(-1 * var(--space-md)); }
+}
