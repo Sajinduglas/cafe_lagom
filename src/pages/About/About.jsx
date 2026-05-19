@@ -1,6 +1,7 @@
 import styles from './About.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import ScrollReveal from '@components/ScrollReveal/ScrollReveal';
+import { BlurText } from '@components/AnimatedText/AnimatedText';
 import { CAFE_NAME } from '@/utils/constants';
 
 const values = [
@@ -19,6 +20,7 @@ export default function About() {
             label="Our story"
             title={`The story of ${CAFE_NAME}`}
             subtitle="A little cafe with a big heart."
+            animateTitle={true}
           />
         </div>
       </div>
@@ -36,7 +38,9 @@ export default function About() {
           </ScrollReveal>
           <ScrollReveal direction="right" className={styles.storyText}>
             <span className={styles.storyLabel}>How it all started</span>
-            <h2 className={styles.storyTitle}>A small dream, a warm reality</h2>
+            <h2 className={styles.storyTitle}>
+              <BlurText text="A small dream, a warm reality" />
+            </h2>
             <p>
               {CAFE_NAME} started as a simple idea — what if there was a place in town where
               you could grab amazing food, sit back, and just breathe? A place that felt like
@@ -60,6 +64,7 @@ export default function About() {
           <SectionTitle
             label="What we stand for"
             title="Our values"
+            animateTitle={true}
           />
           <div className={styles.valuesGrid}>
             {values.map((v, i) => (
