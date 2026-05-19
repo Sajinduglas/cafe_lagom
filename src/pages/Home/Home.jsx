@@ -68,6 +68,7 @@ export default function Home() {
             label="Why us"
             title="Made with love, served with care"
             subtitle="Every item on our menu is prepared fresh, using quality ingredients and plenty of heart."
+            animateTitle={true}
           />
           <div className={styles.highlightGrid}>
             {highlights.map((h, i) => (
