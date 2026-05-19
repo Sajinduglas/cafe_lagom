@@ -16,15 +16,43 @@ const getImagePath = (item) => {
     }
     return '/images/momos.jpg';
   }
-  if (sub.includes('burger') || sub.includes('special')) return '/images/burger.jpg';
-  if (sub.includes('sandwich') || sub.includes('wrap')) return '/images/sandwich.jpg';
-  if (name.includes('cold coffee')) return '/images/cold-coffee.jpg';
-  if (name.includes('mango')) return '/images/mango-shake.jpg';
-  if (sub.includes('shake') || sub.includes('mojito') || sub.includes('lime') || sub.includes('juice') || cat.includes('drink')) {
-    return '/images/cold-coffee.jpg';
+  if (sub.includes('burger') || name.includes('burger')) return '/images/burger.jpg';
+  if (sub.includes('wrap') || name.includes('roll')) return '/images/wrap.jpg';
+  if (sub.includes('sandwich')) return '/images/sandwich.jpg';
+  
+  // Avil Milk
+  if (sub.includes('avil') || name.includes('avil')) return '/images/avil-milk.jpg';
+  
+  // Tender Coconut Blend
+  if (sub.includes('coconut') || name.includes('coconut')) {
+    if (name.includes('grape')) return '/images/lime-juice.jpg';
+    return '/images/vanilla-shake.jpg';
   }
-  if (sub.includes('falooda') || name.includes('salad')) return '/images/waffle.jpg';
+  
+  // Specific Shakes
+  if (name.includes('oreo')) return '/images/oreo-shake.jpg';
+  if (name.includes('strawberry') && (sub.includes('shake') || sub.includes('mojito'))) return '/images/strawberry-shake.jpg';
+  if (name.includes('mango')) return '/images/mango-shake.jpg';
+  if (name.includes('chocolate') || name.includes('nutella') || name.includes('biscoff') || name.includes('boost')) return '/images/chocolate-shake.jpg';
+  if (sub.includes('shake')) return '/images/vanilla-shake.jpg';
+  
+  // Mojitos & Limes & Juices
+  if (sub.includes('mojito')) return '/images/mojito.jpg';
+  if (name.includes('orange')) return '/images/orange-juice.jpg';
+  if (name.includes('watermelon')) return '/images/watermelon-juice.jpg';
+  if (name.includes('pineapple')) return '/images/pineapple-juice.jpg';
+  if (name.includes('pomegranate')) return '/images/pomegranate-juice.jpg';
+  if (sub.includes('juice')) return '/images/orange-juice.jpg';
+  if (sub.includes('lime')) return '/images/lime-juice.jpg';
+  
+  // Falooda
+  if (sub.includes('falooda') || name.includes('salad')) return '/images/falooda.jpg';
+  
+  // Hot Drinks
+  if (sub.includes('hot') || name.includes('coffee') || name.includes('tea')) return '/images/hot-drink.jpg';
+  
   if (name.includes('brownie')) return '/images/brownie.jpg';
+  if (name.includes('waffle')) return '/images/waffle.jpg';
   
   // Brand colors: primary #0D4A35 (deep green) and accent #E8DCC8 (cream)
   return `https://placehold.co/400x280/0D4A35/E8DCC8?text=${encodeURIComponent(item.name)}`;
