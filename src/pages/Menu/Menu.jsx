@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Menu.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import MenuCard from '@components/MenuCard/MenuCard';
+import AnimatedList from '@components/AnimatedList/AnimatedList';
 import { menuItems, menuCategories } from '@data/menuData';
 
 export default function Menu() {
@@ -40,22 +41,11 @@ export default function Menu() {
         </div>
 
         {/* Grid */}
-        <motion.div className={styles.grid} layout>
-          <AnimatePresence mode="popLayout">
-            {filtered.map((item) => (
-              <motion.div
-                key={item.id}
-                layout
-                initial={{ opacity: 0, scale: 0.92 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.88 }}
-                transition={{ duration: 0.35 }}
-              >
-                <MenuCard item={item} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </motion.div>
+        <AnimatedList className={styles.grid}>
+          {filtered.map((item) => (
+            <MenuCard key={item.id} item={item} />
+          ))}
+        </AnimatedList>
 
         {filtered.length === 0 && (
           <p className={styles.empty}>No items in this category yet. Check back soon!</p>

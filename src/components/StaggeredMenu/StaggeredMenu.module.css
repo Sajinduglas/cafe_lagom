@@ -1,0 +1,35 @@
+.staggeredMenu {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-lg);
+  list-style: none;
+  min-width: 200px;
+  transform-origin: top right;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  border: 1px solid var(--color-border);
+}
+
+.item {
+  width: 100%;
+}
+
+.link {
+  display: block;
+  padding: 10px 16px;
+  color: var(--color-text);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), color var(--transition-fast);
+}
+
+.link:hover, .link.active {
+  background: var(--color-bg);
+  color: var(--color-primary);
+}

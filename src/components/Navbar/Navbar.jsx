@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
+import { AnimatePresence } from 'framer-motion';
 import styles from './Navbar.module.css';
 import { CAFE_NAME } from '@/utils/constants';
+import StaggeredMenu from '../StaggeredMenu/StaggeredMenu';
 
 const navLinks = [
   { path: '/', label: 'Home' },
@@ -28,7 +30,7 @@ export default function Navbar() {
           ☕ {CAFE_NAME}
         </NavLink>
 
-        <ul className={`${styles.links} ${menuOpen ? styles.open : ''}`}>
+        <ul className={`${styles.links} ${styles.desktopLinks}`}>
           {navLinks.map(({ path, label }) => (
             <li key={path}>
               <NavLink
@@ -36,13 +38,18 @@ export default function Navbar() {
                 className={({ isActive }) =>
                   isActive ? `${styles.link} ${styles.active}` : styles.link
                 }
-                onClick={() => setMenuOpen(false)}
               >
                 {label}
               </NavLink>
             </li>
           ))}
         </ul>
+
+        <AnimatePresence>
+          {menuOpen && (
+            <StaggeredMenu links={navLinks} closeMenu={() => setMenuOpen(false)} />
+          )}
+        </AnimatePresence>
 
         <button
           className={styles.hamburger}

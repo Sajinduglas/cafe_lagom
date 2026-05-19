@@ -34,9 +34,6 @@ export default function MenuCard({ item }) {
         <p className={styles.description}>{description}</p>
         <div className={styles.footer}>
           <span className={styles.price}>₹{price}</span>
-          <button className={styles.btn} aria-label={`Order ${name}`}>
-            Order Now
-          </button>
         </div>
       </div>
     </motion.div>

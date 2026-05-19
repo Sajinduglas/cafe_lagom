@@ -5,6 +5,7 @@ import SectionTitle from '@components/SectionTitle/SectionTitle';
 import MenuCard from '@components/MenuCard/MenuCard';
 import ReviewCard from '@components/ReviewCard/ReviewCard';
 import ScrollReveal from '@components/ScrollReveal/ScrollReveal';
+import DecryptedText from '@components/DecryptedText/DecryptedText';
 import { menuItems } from '@data/menuData';
 import { reviews } from '@data/reviewsData';
 import { CAFE_NAME, CAFE_TAGLINE } from '@/utils/constants';
@@ -26,14 +27,12 @@ export default function Home() {
       <section className={styles.hero}>
         <div className={styles.heroOverlay} />
         <div className={`container ${styles.heroContent}`}>
-          <motion.span
+          <DecryptedText
+            text="Welcome to"
             className={styles.heroLabel}
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            Welcome to
-          </motion.span>
+            speed={40}
+            maxIterations={5}
+          />
           <motion.h1
             className={styles.heroTitle}
             initial={{ opacity: 0, y: 30 }}
@@ -42,14 +41,14 @@ export default function Home() {
           >
             {CAFE_NAME}
           </motion.h1>
-          <motion.p
-            className={styles.heroSub}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-          >
-            {CAFE_TAGLINE}
-          </motion.p>
+          <div className={styles.heroSubWrapper}>
+            <DecryptedText
+              text={CAFE_TAGLINE}
+              className={styles.heroSub}
+              speed={30}
+              maxIterations={8}
+            />
+          </div>
           <motion.div
             className={styles.heroCta}
             initial={{ opacity: 0, y: 20 }}

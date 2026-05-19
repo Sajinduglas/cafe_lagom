@@ -86,22 +86,8 @@
     display: flex;
   }
 
-  .links {
-    position: fixed;
-    top: var(--navbar-height);
-    left: 0;
-    right: 0;
-    background: var(--color-surface);
-    flex-direction: column;
-    padding: var(--space-lg);
-    gap: var(--space-md);
-    transform: translateY(-120%);
-    transition: transform var(--transition-base);
-    box-shadow: var(--shadow-md);
-  }
-
-  .links.open {
-    transform: translateY(0);
+  .desktopLinks {
+    display: none;
   }
 
   .x1 { transform: translateY(7px) rotate(45deg); }
