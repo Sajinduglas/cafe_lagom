@@ -24,8 +24,8 @@
   background-image: url('/images/cafe-interior.jpg');
   background-size: cover;
   background-position: center;
-  opacity: 0.18;
-  filter: blur(2px) brightness(0.6);
+  opacity: 0.55;
+  filter: brightness(0.85);
 }
 
 .heroOverlay {
@@ -36,8 +36,8 @@
   bottom: 0;
   background: linear-gradient(
     180deg,
-    rgba(8, 45, 32, 0.4) 0%,
-    var(--color-primary-dark) 100%
+    rgba(8, 45, 32, 0.35) 0%,
+    rgba(5, 27, 19, 0.6) 100%
   );
 }
 
@@ -74,22 +74,34 @@
   object-fit: cover;
 }
 
-.hero :global(.title) {
-  color: #ffffff;
-  margin-bottom: var(--space-sm);
+/* Correctly targeting compiled CSS Modules of SectionTitle */
+.heroContent [class*="title"] {
+  color: #ffffff !important;
+  font-size: clamp(2.2rem, 5vw, 3.2rem) !important;
+  font-weight: 800 !important;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6) !important;
+  margin-bottom: var(--space-sm) !important;
 }
 
-.hero :global(.label) {
-  color: var(--color-secondary);
+.heroContent [class*="label"] {
+  color: var(--color-secondary) !important;
+  font-size: 0.9rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.22em !important;
+  text-transform: uppercase !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+  margin-bottom: var(--space-xs) !important;
 }
 
-.hero :global(.subtitle) {
-  color: var(--color-accent);
-  opacity: 0.85;
-  font-size: 1rem;
-  max-width: 600px;
-  margin: 0 auto var(--space-lg) auto;
-  line-height: 1.6;
+.heroContent [class*="subtitle"] {
+  color: var(--color-accent) !important;
+  opacity: 0.95 !important;
+  font-size: 1.15rem !important;
+  font-weight: 500 !important;
+  max-width: 650px !important;
+  margin: var(--space-sm) auto var(--space-lg) auto !important;
+  line-height: 1.6 !important;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5) !important;
 }
 
 /* ─── Dashboard Stats Row ─── */

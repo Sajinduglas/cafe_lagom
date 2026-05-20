@@ -5,14 +5,14 @@ import SectionTitle from '@components/SectionTitle/SectionTitle';
 import FlyingPosters from '@components/FlyingPosters/FlyingPosters';
 
 const galleryImages = [
-  { id: 1, src: '/images/fries.jpg',         alt: 'Loaded French Fries',  label: 'Loaded Fries' },
-  { id: 2, src: '/images/momos.jpg',          alt: 'Steamed Momos',        label: 'Steamed Momos' },
-  { id: 3, src: '/images/burger.jpg',         alt: 'Veg Burger',           label: 'Veg Burger' },
-  { id: 4, src: '/images/cafe-interior.jpg',  alt: 'Cafe Interior',        label: 'Our Space' },
-  { id: 5, src: '/images/cold-coffee.jpg',    alt: 'Cold Coffee',          label: 'Cold Coffee' },
-  { id: 6, src: '/images/brownie.jpg',        alt: 'Chocolate Brownie',    label: 'Brownie' },
-  { id: 7, src: '/images/maggi.jpg',          alt: 'Masala Maggi',         label: 'Masala Maggi' },
-  { id: 8, src: '/images/waffle.jpg',         alt: 'Waffle',               label: 'Waffle' },
+  { id: 1, src: '/images/gal1.png',           alt: 'Spice Meets Sweet! Honey Chilli Perfection.', label: 'Honey Chilli Special' },
+  { id: 2, src: '/images/gal2.png',           alt: 'Cheesy Loaded Fries. Our bestseller for a reason.',  label: 'Cheesy Loaded Fries' },
+  { id: 3, src: '/images/gal3.png',           alt: 'We Are Open! Near KSRTC Bus Terminal, Kollam.',   label: 'Our Cafe Space' },
+  { id: 4, src: '/images/gal4.png',           alt: 'Cozy backlit Cafe Lagom sign at night.',         label: 'Cozy Signboard' },
+  { id: 5, src: '/images/sandwich.jpg',       alt: 'Double-decker grilled club sandwich stacked with fresh veggies.', label: 'Club Sandwich' },
+  { id: 6, src: '/images/mojito.jpg',         alt: 'Refreshing mint mojito with lime and sparkling soda.', label: 'Mint Mojito' },
+  { id: 7, src: '/images/momos.jpg',           alt: 'Handmade steamed momos with spicy dipping sauce.', label: 'Steamed Momos' },
+  { id: 8, src: '/images/burger.jpg',          alt: 'Veg burger stacked with fresh ingredients.',       label: 'Veg Burger' },
 ];
 
 const placeholder = (label) =>
@@ -23,12 +23,15 @@ export default function Gallery() {
 
   return (
     <main className={styles.page}>
+      {/* Hero Section with Space Background image */}
       <div className={styles.hero}>
-        <div className="container">
+        <div className={styles.heroBg} />
+        <div className={styles.heroOverlay} />
+        <div className={`container ${styles.heroContent}`}>
           <SectionTitle
             label="Visual feast"
             title="Gallery"
-            subtitle="A glimpse of what awaits you at The Cozy Cup."
+            subtitle="A glimpse of the delicious flavours and cozy spaces waiting for you at Cafe Lagom."
           />
         </div>
       </div>
@@ -53,7 +56,10 @@ export default function Gallery() {
                   onError={(e) => { e.target.src = placeholder(img.label); }}
                 />
                 <div className={styles.overlay}>
-                  <span className={styles.overlayLabel}>{img.label}</span>
+                  <div className={styles.overlayText}>
+                    <span className={styles.overlayLabel}>{img.label}</span>
+                    <span className={styles.overlayView}>View Photo</span>
+                  </div>
                 </div>
               </motion.div>
             ))}
@@ -65,7 +71,7 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Lightbox */}
+      {/* Lightbox Modal with Caption details */}
       <AnimatePresence>
         {lightbox && (
           <motion.div
@@ -75,17 +81,23 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             onClick={() => setLightbox(null)}
           >
-            <motion.img
-              src={lightbox.src}
-              alt={lightbox.alt}
-              className={styles.lightboxImg}
-              initial={{ scale: 0.85 }}
-              animate={{ scale: 1 }}
-              exit={{ scale: 0.85 }}
-              transition={{ duration: 0.3 }}
-              onError={(e) => { e.target.src = placeholder(lightbox.label); }}
-            />
-            <button className={styles.lightboxClose} onClick={() => setLightbox(null)}>✕</button>
+            <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
+              <motion.img
+                src={lightbox.src}
+                alt={lightbox.alt}
+                className={styles.lightboxImg}
+                initial={{ scale: 0.9 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.9 }}
+                transition={{ duration: 0.3 }}
+                onError={(e) => { e.target.src = placeholder(lightbox.label); }}
+              />
+              <div className={styles.lightboxCaption}>
+                <h3 className={styles.captionTitle}>{lightbox.label}</h3>
+                <p className={styles.captionDesc}>{lightbox.alt}</p>
+              </div>
+              <button className={styles.lightboxClose} onClick={() => setLightbox(null)}>✕</button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
