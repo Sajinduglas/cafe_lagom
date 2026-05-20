@@ -1,43 +1,181 @@
-.page { padding-top: var(--navbar-height); }
-
-.hero {
-  background: var(--color-primary);
-  padding: var(--space-xl) 0;
+.page {
+  padding-top: var(--navbar-height);
+  background-color: var(--color-bg);
 }
 
-.hero :global(.title) { color: #fff; }
-.hero :global(.label) { color: var(--color-accent); }
-.hero :global(.subtitle) { color: rgba(255,255,255,0.65); }
+/* ─── Hero Section ─── */
+.hero {
+  position: relative;
+  background-color: var(--color-primary-dark);
+  padding: calc(var(--space-2xl) * 1.1) 0 var(--space-2xl) 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 
+.heroBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/images/cafe-interior.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: 0.18;
+  filter: blur(2px) brightness(0.6);
+}
+
+.heroOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(8, 45, 32, 0.4) 0%,
+    var(--color-primary-dark) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoWrapper {
+  width: 110px;
+  height: 110px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 3px solid var(--color-secondary);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(200, 169, 110, 0.3);
+  background-color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-md);
+  transition: transform var(--transition-base);
+}
+
+.logoWrapper:hover {
+  transform: scale(1.05) rotate(3deg);
+}
+
+.heroLogo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero :global(.title) {
+  color: #ffffff;
+  margin-bottom: var(--space-sm);
+}
+
+.hero :global(.label) {
+  color: var(--color-secondary);
+}
+
+.hero :global(.subtitle) {
+  color: var(--color-accent);
+  opacity: 0.85;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto var(--space-lg) auto;
+  line-height: 1.6;
+}
+
+/* ─── Dashboard Stats Row ─── */
 .stats {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: var(--space-xl);
   flex-wrap: wrap;
+  background: rgba(13, 74, 53, 0.55);
+  border: 1px solid var(--color-border-green);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: var(--space-md) var(--space-xl);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-md);
 }
 
-.stat { text-align: center; }
+.stat {
+  text-align: center;
+  position: relative;
+  padding: 0 var(--space-sm);
+}
 
 .statNum {
   display: block;
   font-family: var(--font-heading);
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-secondary);
+  line-height: 1.2;
+  margin-bottom: 2px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .statLabel {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
 }
 
+/* ─── Reviews Grid ─── */
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
 }
 
-@media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 640px)  { .grid { grid-template-columns: 1fr; } }
+/* ─── Responsive Adjustments ─── */
+@media (min-width: 769px) {
+  .stat:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: calc(var(--space-xl) * -0.5);
+    top: 20%;
+    bottom: 20%;
+    width: 1px;
+    background-color: var(--color-border-green);
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .stats {
+    gap: var(--space-md);
+    padding: var(--space-md);
+  }
+  .stat {
+    flex: 1 1 100%;
+    padding: var(--space-xs) 0;
+  }
+  .stat:not(:last-child) {
+    border-bottom: 1px solid var(--color-border-green);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

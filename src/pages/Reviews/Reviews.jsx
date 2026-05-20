@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import styles from './Reviews.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import ReviewCard from '@components/ReviewCard/ReviewCard';
@@ -9,26 +10,47 @@ export default function Reviews() {
   return (
     <main className={styles.page}>
       <div className={styles.hero}>
-        <div className="container">
+        <div className={styles.heroBg} />
+        <div className={styles.heroOverlay} />
+        <div className={`container ${styles.heroContent}`}>
+          <motion.div
+            className={styles.logoWrapper}
+            initial={{ scale: 0.8, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ type: 'spring', damping: 20, stiffness: 120 }}
+          >
+            <img
+              src="/images/lagom_logo copy.jpeg"
+              alt="Cafe Lagom Logo"
+              className={styles.heroLogo}
+            />
+          </motion.div>
+          
           <SectionTitle
             label="Customer love"
             title="What our guests say"
             subtitle="Honest reviews from the people who matter most — our customers."
           />
-          <div className={styles.stats}>
+
+          <motion.div 
+            className={styles.stats}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
             <div className={styles.stat}>
               <span className={styles.statNum}>{avgRating}</span>
               <span className={styles.statLabel}>Average Rating</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statNum}>{reviews.length}+</span>
+              <span className={styles.statNum}>1,000+</span>
               <span className={styles.statLabel}>Happy Customers</span>
             </div>
             <div className={styles.stat}>
-              <span className={styles.statNum}>★★★★★</span>
-              <span className={styles.statLabel}>5-star reviews</span>
+              <span className={styles.statNum}>500+</span>
+              <span className={styles.statLabel}>5-Star Reviews</span>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
