@@ -53,7 +53,6 @@ export default function Menu() {
           <SectionTitle
             label="What we serve"
             title="Our Menu"
-            subtitle="Fresh, flavourful, and made with care. Something for every craving."
           />
           <button
             className={styles.actionBtn}
