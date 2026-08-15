@@ -2,13 +2,15 @@ import { motion } from 'framer-motion';
 import styles from './Reviews.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import ReviewCard from '@components/ReviewCard/ReviewCard';
+import PageShimmer from '@components/PageShimmer/PageShimmer';
 import { reviews } from '@data/reviewsData';
 
 const avgRating = (reviews.reduce((sum, r) => sum + r.rating, 0) / reviews.length).toFixed(1);
 
 export default function Reviews() {
   return (
-    <main className={styles.page}>
+    <PageShimmer variant="reviews">
+      <main className={styles.page}>
       <div className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroOverlay} />
@@ -61,6 +63,7 @@ export default function Reviews() {
           ))}
         </div>
       </div>
-    </main>
+      </main>
+    </PageShimmer>
   );
 }

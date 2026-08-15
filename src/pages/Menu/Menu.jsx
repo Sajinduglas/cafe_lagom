@@ -4,6 +4,7 @@ import styles from './Menu.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import MenuCard from '@components/MenuCard/MenuCard';
 import AnimatedList from '@components/AnimatedList/AnimatedList';
+import PageShimmer from '@components/PageShimmer/PageShimmer';
 import { menuItems, menuCategories } from '@data/menuData';
 
 export default function Menu() {
@@ -29,7 +30,8 @@ export default function Menu() {
   const isFoodCategory = activeCategory === 'Food' || activeCategory === 'Momos';
 
   return (
-    <main className={styles.page}>
+    <PageShimmer variant="menu">
+      <main className={styles.page}>
       <div className={styles.hero}>
         <div
           className={styles.heroBg}
@@ -146,6 +148,7 @@ export default function Menu() {
           </motion.div>
         )}
       </AnimatePresence>
-    </main>
+      </main>
+    </PageShimmer>
   );
 }

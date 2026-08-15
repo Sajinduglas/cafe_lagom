@@ -3,6 +3,7 @@ import styles from './About.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import ScrollReveal from '@components/ScrollReveal/ScrollReveal';
 import { BlurText } from '@components/AnimatedText/AnimatedText';
+import PageShimmer from '@components/PageShimmer/PageShimmer';
 import { CAFE_NAME, CAFE_TAGLINE, CAFE_DESCRIPTION } from '@/utils/constants';
 
 const values = [
@@ -14,7 +15,8 @@ const values = [
 
 export default function About() {
   return (
-    <main className={styles.page}>
+    <PageShimmer variant="about">
+      <main className={styles.page}>
       {/* Immersive Hero Section */}
       <div className={styles.hero}>
         <div className={styles.heroBg} />
@@ -142,6 +144,7 @@ export default function About() {
           </div>
         </div>
       </section>
-    </main>
+      </main>
+    </PageShimmer>
   );
 }
