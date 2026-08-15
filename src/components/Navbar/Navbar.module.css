@@ -130,17 +130,34 @@
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--color-primary);
+  /* Cream color — visible on the dark green hero background */
+  background: var(--color-accent);
   transition: transform var(--transition-base), opacity var(--transition-fast);
 }
 
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
+    margin-left: auto; /* pushes it to the far right */
   }
 
   .desktopLinks {
     display: none;
+  }
+
+  /* Logo stays at the left start and hamburger at the end */
+  .inner {
+    justify-content: space-between;
+    padding: 0 var(--space-sm);
+  }
+
+  .logo {
+    flex-shrink: 0;
+  }
+
+  /* On light subpages (not scrolled), switch bars to dark green */
+  .navbar.lightNavbar .bar {
+    background: var(--color-primary);
   }
 
   .x1 { transform: translateY(7px) rotate(45deg); }

@@ -50,6 +50,7 @@
   display: flex;
   gap: var(--space-md);
   flex-wrap: wrap;
+  margin-top: var(--space-md);
 }
 
 .ctaPrimary {
@@ -175,4 +176,11 @@
   .highlightGrid { grid-template-columns: 1fr; }
   .menuGrid { grid-template-columns: 1fr; }
   .reviewsGrid { grid-template-columns: 1fr; }
+
+  .heroCta {
+    margin-top: var(--space-xl);
+    gap: var(--space-md);
+    flex-direction: row;
+    align-items: center;
+  }
 }
