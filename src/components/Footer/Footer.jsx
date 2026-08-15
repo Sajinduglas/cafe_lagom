@@ -27,10 +27,11 @@ export default function Footer() {
 
         <div className={styles.col}>
           <h4 className={styles.colTitle}>Opening Hours</h4>
-          <p className={styles.info}>Mon – Fri: {CAFE_HOURS.weekdays}</p>
-          <p className={styles.info}>Sat – Sun: {CAFE_HOURS.weekends}</p>
+          <p className={styles.info}>{CAFE_HOURS.allWeek}</p>
           <p className={`${styles.info} ${styles.address}`}>{CAFE_ADDRESS}</p>
-          <p className={styles.info}>{CAFE_PHONE}</p>
+          {CAFE_PHONE.map((num) => (
+            <p key={num} className={styles.info}>{num}</p>
+          ))}
         </div>
       </div>
 
