@@ -6,7 +6,6 @@ import MenuCard from '@components/MenuCard/MenuCard';
 import ReviewCard from '@components/ReviewCard/ReviewCard';
 import ScrollReveal from '@components/ScrollReveal/ScrollReveal';
 import DecryptedText from '@components/DecryptedText/DecryptedText';
-import PageShimmer from '@components/PageShimmer/PageShimmer';
 import { menuItems } from '@data/menuData';
 import { reviews } from '@data/reviewsData';
 import { CAFE_NAME, CAFE_TAGLINE } from '@/utils/constants';
@@ -23,8 +22,7 @@ const highlights = [
 
 export default function Home() {
   return (
-    <PageShimmer variant="home">
-      <main>
+    <main>
       {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroOverlay} />
@@ -122,7 +120,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      </main>
-    </PageShimmer>
+    </main>
   );
 }

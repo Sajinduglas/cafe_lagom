@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import styles from './Gallery.module.css';
 import SectionTitle from '@components/SectionTitle/SectionTitle';
 import FlyingPosters from '@components/FlyingPosters/FlyingPosters';
-import PageShimmer from '@components/PageShimmer/PageShimmer';
 
 const galleryImages = [
   { id: 1, src: '/images/gal1.png',           alt: 'Spice Meets Sweet! Honey Chilli Perfection.', label: 'Honey Chilli Special' },
@@ -23,8 +22,7 @@ export default function Gallery() {
   const [lightbox, setLightbox] = useState(null);
 
   return (
-    <PageShimmer variant="gallery">
-      <main className={styles.page}>
+    <main className={styles.page}>
       {/* Hero Section with Space Background image */}
       <div className={styles.hero}>
         <div className={styles.heroBg} />
@@ -103,7 +101,6 @@ export default function Gallery() {
           </motion.div>
         )}
       </AnimatePresence>
-      </main>
-    </PageShimmer>
+    </main>
   );
 }
